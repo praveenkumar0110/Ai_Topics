@@ -1,37 +1,53 @@
-🧠 Personal AI Agent Learning Notes
+# 🧠 AiAgentCore — Personal AI Agent Learning Notes
 
-⚠️ This repository is only for my personal understanding and clarification of AI Agent concepts.
-It is not a complete guide to LLMs, MCP, RAG, or Agent frameworks and is not intended for public use.
+⚠️ This repository is only for my personal understanding and clarification of AI Agent concepts.  
+It is **not** a complete guide to LLMs, MCP, RAG, or Agent frameworks and is **not intended for public use**.
 
-🎯 Why This Repo Exists
+---
 
-To store what I learn while experimenting with AI Agent systems
+## 🎯 Why This Repo Exists
 
-To keep short reminders of concepts, not full theoretical explanations
+- To store what I learn while experimenting with AI Agent systems
+- To keep short reminders of concepts, not full theoretical explanations
+- To track my own understanding of LLMs, MCP, RAG, Tool Calling, and Agents
+- To upload code incrementally as I explore each topic
+- To revisit later when I need clarity on architecture or implementation
 
-To track my own understanding of LLMs, MCP, RAG, Tool Calling, and Agents
+---
 
-To upload code incrementally as I explore each topic
+## 🧩 Topics Covered in This Repository
 
-To revisit later when I need clarity on architecture or implementation
+- LLM Foundations
+- MCP (Model Context Protocol)
+- Tool Calling Patterns
+- RAG (Retrieval Augmented Generation)
+- GraphRAG Concepts
+- Agentic AI Architecture
+- Browser Automation using Playwright & CDP
 
-🧩 Topics I’m Exploring Here
+### 🐍 Python Agent Frameworks Explored
 
-LLM foundations and prompt behavior
+- LangChain
+- LangGraph
+- CrewAI
+- AutoGen
 
-MCP (Model Context Protocol) tool building
+---
 
-Tool Calling patterns
+## 🛠️ What You’ll Find Here
 
-RAG and GraphRAG implementations
+Each folder contains:
 
-Agentic AI architecture and workflows
+- Small working code examples
+- Input / Output samples
+- My personal notes and reminders
+- Experiments with tools and agent patterns
 
-Browser automation using Playwright and CDP
+This is a **learning lab**, not a production-ready project.
 
-Agent frameworks like LangChain, LangGraph, CrewAI, and AutoGen
+---
 
-🔒 Disclaimer
+## 🔒 Disclaimer
 
-This repository is strictly personal.
-Content is written for me, by me, for clarity and experimentation only.
+This repository is strictly personal.  
+Content is written **for me, by me, for clarity and experimentation only**.
