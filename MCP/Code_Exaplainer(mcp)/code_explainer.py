@@ -29,7 +29,6 @@ def read_code_file(path: str) -> str:
         return f"Error reading file: {str(e)}"
 
 
-# -------------------- CLIENT LOGIC --------------------
 
 async def run_client():
     print("Starting MCP client...\n")
@@ -77,7 +76,7 @@ CODE:
             print(response["message"]["content"])
 
 
-# -------------------- ENTRY POINT --------------------
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "server":

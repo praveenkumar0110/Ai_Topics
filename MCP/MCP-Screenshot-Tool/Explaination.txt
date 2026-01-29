@@ -1,0 +1,218 @@
+🧠 Big Picture – indha program enna pannudhu?
+
+Neenga run pannina:
+
+python screenshot_mcp.py
+
+
+Indha oru file la:
+
+Client run aagum
+
+Client marubadiyum same file ah server mode la run pannum
+
+Client → URL anupum
+
+Server → Browser open pannum → Screenshot edukkum
+
+Server → Path thirupi anupum
+
+Loop la multiple screenshots edukkalam
+
+🔹 Imports
+import asyncio
+import sys
+import os
+from datetime import datetime
+
+
+asyncio → async client/server communication
+
+sys → server mode check panna
+
+os → folder create panna
+
+datetime → unique file name create panna
+
+from mcp.server import FastMCP
+from mcp import ClientSession
+from mcp.client.stdio import stdio_client, StdioServerParameters
+from playwright.async_api import async_playwright
+
+
+FastMCP → MCP server create panna
+
+ClientSession → MCP client create panna
+
+stdio_client → same file la client/server talk panna
+
+async_playwright → browser automation
+
+🔹 MCP Server create pannuring
+mcp = FastMCP("ScreenshotTool")
+
+
+Meaning:
+
+“ScreenshotTool nu oru MCP server create panren”
+
+🔥 Tool define pannuring (main part)
+@mcp.tool()
+async def take_screenshot(url: str) -> str:
+
+
+Idhu AI / client call panna mudiyura tool.
+
+Folder create
+os.makedirs("screenshots", exist_ok=True)
+
+
+screenshots/ folder illa na create pannum.
+
+Unique file name
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+screenshot_path = f"screenshots/screenshot_{timestamp}.png"
+
+
+Every run → new file.
+
+Old image overwrite aagathu.
+
+Browser open pannudhu
+async with async_playwright() as p:
+    browser = await p.chromium.launch(headless=True)
+
+
+Chromium browser open pannudhu
+
+headless=True → UI illa background la run
+
+Page open pannudhu
+page = await browser.new_page()
+await page.goto(url, timeout=60000)
+
+
+URL ku pogudhu.
+
+Screenshot edukkudhu
+await page.screenshot(path=screenshot_path, full_page=True)
+
+
+Full page screenshot.
+
+Browser close
+await browser.close()
+
+Path return pannudhu
+return f"Screenshot saved at: {screenshot_path}"
+
+
+Server idha client ku anupum.
+
+🔷 Client Logic
+async def run_client():
+
+
+Client start aagudhu.
+
+Server ah start pannudhu (important)
+server_params = StdioServerParameters(
+    command="python",
+    args=[__file__, "server"],
+)
+
+
+Client soludhu:
+
+“Indha same file ah marubadiyum run pannu, but ‘server’ mode la”
+
+So internally:
+
+python screenshot_mcp.py server
+
+Client ↔ Server connect
+async with stdio_client(server_params) as (read, write):
+
+
+Terminal pipes use panni communication.
+
+Loop for multiple screenshots
+while True:
+    url = input("Enter website URL (or 'exit')")
+
+
+Evlo thadava venumna screenshot edukkalam.
+
+Tool call pannudhu
+result = await session.call_tool(
+    "take_screenshot",
+    {"url": url}
+)
+
+
+Client → Server:
+
+take_screenshot tool ah call pannu
+
+Result print pannudhu
+print(result.content[0].text)
+
+
+Server anupuna path print aagum.
+
+🔻 Entry Point (very smart part)
+if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "server":
+        mcp.run()
+    else:
+        asyncio.run(run_client())
+
+Case 1
+python screenshot_mcp.py
+
+
+→ Client mode
+
+Case 2 (client internally run pannum)
+python screenshot_mcp.py server
+
+
+→ Server mode
+
+Same file. Two roles.
+
+🔥 Full Flow Diagram
+You run file
+     ↓
+Client start
+     ↓
+Client starts same file as Server
+     ↓
+You enter URL
+     ↓
+Client → Tool call
+     ↓
+Server → Browser open → Screenshot
+     ↓
+Server → Path return
+     ↓
+Client print
+     ↓
+Loop again
+
+🧠 Most important understanding
+
+Indha project la:
+
+❌ LLM illa
+❌ Prompt illa
+
+✅ Pure MCP tool execution
+✅ Browser automation
+✅ Client/Server architecture clear
+
+One line summary
+
+URL kudutha, MCP server browser open panni, screenshot eduthu, path client ku thirupi anupudhu — loop la evlo venumna pannalam.
+
+DEVELOPER MODE
