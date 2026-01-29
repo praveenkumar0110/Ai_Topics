@@ -1,0 +1,6 @@
+Artificial Intelligence (AI) refers to the ability of machines to perform tasks that typically r
+equire human intelligence. These tasks include understanding language,
+ recognizing patterns, solving problems, and making decisions. 
+ AI systems are trained using large amounts of data and algorithms to learn how to respond intelligently.
+Today, AI is used in many fields such as healthcare, 
+finance, education, and transportation.arthor of this txt is praveen kumar so praveen kumar short form is PK
