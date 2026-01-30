@@ -1,0 +1,9 @@
+Flow 
+
+Tool definition → LLM ku
+
+LLM decide pannum → “get_weather call pannanum”
+
+Python code la irukura real function run aagum
+
+Result LLM ku thirumba pogum

@@ -1,0 +1,16 @@
+(.venv) PS C:\Users\USER\Downloads\AiAgentCore\youtube_agent> python youtube_agent.py
+>>
+What videos you want to search? Large Language Model
+Tool called with: {'query': 'Large Language Model'}
+
+Top YouTube Videos:
+
+Here are some YouTube videos about Large Language Models:
+
+1. [Large Language Models: What Are They and How Do They Work?](https://www.youtube.com/watch?v=zizonToFXDs)
+2. [Introduction to Large Language Models - How to Develop an AI Model like ChatGPT](https://www.youtube.com/watch?v=iR2O2GPbB0E)
+3. [The Importance of Large Language Models in Natural Language Processing (NLP)](https://www.youtube.com/watch?v=F-ANHe_hr9w)
+4. [Understanding the Role and Impact of Large Language Models in AI](https://www.youtube.com/watch?v=984qBh164fo)
+5. [Large Language Models: Current Developments and Future Directions](https://www.youtube.com/watch?v=cfqtFvWOfg0)
+
+You can watch these videos for more information on Large Language Models!
