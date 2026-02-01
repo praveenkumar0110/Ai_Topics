@@ -21,6 +21,7 @@ if uploaded_files:
     if st.button("Index Resumes"):
         all_chunks = [] #all resume chunk ah collect panrom 
 
+
         with st.spinner("Processing and indexing resumes..."): #loading ui(lazy loading )
             # Each file save 
             for file in uploaded_files:

@@ -1,0 +1,15 @@
+step 1
+file create----- upload resume
+
+
+step 2 
+index reume click panna appram 
+empty [] list
+
+ingest_pdf fun la chunk ah victor db la store panrom 
+
+step3 la create_vectorstore la all_chunks store panrom
+
+
+step 4 lasearch btn click panna apram query_resumes fun call aagum
+
