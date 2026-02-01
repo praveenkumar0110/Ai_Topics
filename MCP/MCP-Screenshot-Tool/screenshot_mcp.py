@@ -22,12 +22,17 @@ async def take_screenshot(url: str) -> str:
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     screenshot_path = f"screenshots/screenshot_{timestamp}.png"
-
+#Playwright start----
     async with async_playwright() as p:
+        #chrome open
         browser = await p.chromium.launch(headless=True)
+        #new page 
         page = await browser.new_page()
+        #URL load pannudhu 6 sec wait 
         await page.goto(url, timeout=60000)
+        #Screenshot edukudhu full page  save screenshots folder 
         await page.screenshot(path=screenshot_path, full_page=True)
+        #Browser close
         await browser.close()
 
     return f"Screenshot saved at: {screenshot_path}"
@@ -46,7 +51,7 @@ async def run_client():
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
             await session.initialize()
-
+#User multiple URLs kuduka mudiyum.
             while True:
                 url = input("\nEnter website URL (or 'exit'): ").strip()
 

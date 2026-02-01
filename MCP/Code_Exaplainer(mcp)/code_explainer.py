@@ -9,10 +9,11 @@ from mcp.client.stdio import stdio_client, StdioServerParameters
 
 
 
-
+# server obj create 
 mcp = FastMCP("CodeExplainerTool")
 
-@mcp.tool()
+# step -----------------------5 path contnet read
+@mcp.tool()  #---register tool
 def read_code_file(path: str) -> str:
     """Read a code file and return its content."""
 
@@ -32,30 +33,33 @@ def read_code_file(path: str) -> str:
 
 async def run_client():
     print("Starting MCP client...\n")
-
+#Client decides to start server---------------------2
     server_params = StdioServerParameters(
         command="python",
         args=[__file__, "server"],
     )
-
+#pipe connection
     async with stdio_client(server_params) as (read, write):
+        #Session initialize ---Tools use panna ready.
         async with ClientSession(read, write) as session:
             await session.initialize()
 
-            file_path = input("Enter full file path to explain: ").strip()
+            file_path = input("Enter full file path to explain: ").strip()    # step-----------3
 
             result = await session.call_tool(
                 "read_code_file",
-                {"path": file_path}
+                {"path": file_path}   #step --------4 path and tool call
             )
+            
+            #clinet - Server, read_code_file tool run pannunga, indha path use panni
 
-            code_content = result.content[0].text
+            code_content = result.content[0].text #step ----------------------6 
 
             if code_content.startswith("Error"):
                 print(code_content)
                 return
-
-            prompt = f"""
+# step ---------------------------7 promt llm snd pannudhu
+            prompt = f"""  
 You are a senior software engineer.
 
 Explain the following code LINE BY LINE in simple terms.
@@ -66,7 +70,7 @@ CODE:
 """
 
             print("\nSending to LLM...\n")
-
+#step ------------------------------------8 llm answer
             response = ollama.chat(
                 model="llama3",
                 messages=[{"role": "user", "content": prompt}]
@@ -82,4 +86,4 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "server":
         mcp.run()
     else:
-        asyncio.run(run_client())
+        asyncio.run(run_client())  #step 1------------------------------------1
