@@ -9,7 +9,7 @@ Yaaravadhu tool call pannuna, naan run pannren”
 
 step 4 
 
-result la tool (function) call 
+result la tool (function) call ---- session.call_tool
 path 
 get prompt send pannudhu
 

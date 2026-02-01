@@ -21,7 +21,7 @@ embeddings = HuggingFaceEmbeddings(
 )
 
 db = FAISS.from_documents(chunks, embeddings)
-retriever = db.as_retriever()
+retriever = db.as_retriever()   #search interface 
 
 
 pipe = pipeline(
@@ -57,5 +57,5 @@ Answer:
 
 
 
-print(rag_chain("Who is the author of this text?"))
+print(rag_chain("Who is the author of this text?")) # fun run aaguthu 
 print(rag_chain("What is the short form of Praveen Kumar?"))

@@ -23,6 +23,7 @@ def ingest_pdf(pdf_path):
     chunks = splitter.split_documents(docs)
 
     for chunk in chunks:
+        # meta dat  = resume name(pk)
         chunk.metadata["source"] = pdf_path
 
     return chunks
@@ -50,6 +51,7 @@ def query_resumes(question):
     )
 #FAISS → search engine aagudhu.
     retriever = vectordb.as_retriever(search_kwargs={"k": 5})
+    #retriever.invoke(question) = Question embedding → FAISS search → similar resume chunks.
     docs = retriever.invoke(question)
 
     context = "\n\n".join([d.page_content for d in docs])

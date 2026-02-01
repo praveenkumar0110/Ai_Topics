@@ -40,8 +40,9 @@ async def run_client():
     )
 #pipe connection
     async with stdio_client(server_params) as (read, write):
-        #Session initialize ---Tools use panna ready.
+        #ClientSession ClientSession
         async with ClientSession(read, write) as session:
+              #Session initialize ---Tools use panna ready.
             await session.initialize()
 
             file_path = input("Enter full file path to explain: ").strip()    # step-----------3

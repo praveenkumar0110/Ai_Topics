@@ -1,0 +1,47 @@
+Text → Chunks → Vectors → FAISS
+Question → Vector → Similar chunks → LLM
+
+Step 1 — Text load pannudhu
+docs la full text varum.
+
+--------------------
+
+
+Step 2 — Text split pannudhu (chunks)
+---------------------------------
+
+Step 3 — Embeddings model
+Text → vector numbers.
+
+
+--------------------
+
+Step 4 — FAISS vector DB create
+
+-------------------
+
+Step 5 — LLM pipeline
+
+Idhu answer generate pannum.
+
+---------------------
+Step 6 — User question varudhu
+rag_chain("Who is the author of this text?")
+
+--------------------
+
+Step 7 — Question embedding aagudhu (important)
+Question → embedding vector
+------------------------------------------------
+Step 8 — FAISS similar chunks thedudhu
+inga retiver = search engine in FAISS
+      invoke = similar chunks(search)
+ ----------------------------------------------------     
+Step 9 — Context build pannudhu
+-------------------------------------------
+Step 10 — Prompt create pannudhu
+----------------------------------------------
+
+Step 11 — LLM answer generate pannudhu
+-----------------------------------
+Step 12 — Print

@@ -7,7 +7,7 @@ mcp.run() tool ah wait panna vekkudhu
 Yaaravadhu tool call pannuna, naan run pannren”
 ---------------------------------------------------------
 step 3 
-
+session.call_tool --- fun call aaguthu 
 result la
  Tool name: take_screenshot
 Parameter: url
