@@ -50,7 +50,7 @@ response = client.chat.completions.create(
 
 msg = response.choices[0].message  #llm replay enna kuduthuruku ?
 
- 
+
 # 🔍 Check tool call
 if msg.tool_calls:
     tool_call = msg.tool_calls[0]
