@@ -1,24 +1,55 @@
-Flow 
+Step 1 
 
-Tool definition → LLM ku
+object create - cline = openAi(
 
-LLM decide pannum → “get_weather call pannanum”
+)
 
-Python code la irukura real function run aagum
+----------------------------
 
-Result LLM ku thirumba pogum
+step 2 API - call
+
+Ollama server ku request pogudhu
+Qwen model think pannudhu
+Tool call ah? text reply ah? decide pannudhu
+Response thirumba varudhu
+--------------------------------------
+
+Step 3 -- tool Schema
+
+Nee tool schema LLM ku anuppura
+
+LLM adha paathu decide pannum — “indha tool venum” nu
+
+LLM tool_call return pannum (JSON la)
 
 
+---------------------------------------
 
+Step 4  llm return
 
-User input
-   ↓
-LLM (decide tool venuma?)
-   ↓
-Tool call JSON
-   ↓
-Python function execute
-   ↓
-Result back to LLM
-   ↓
-LLM final response
+{
+  "tool_calls": [
+    {
+      "function": {
+        "name": "get_weather",
+        "arguments": {"city": "Chennai"}
+      }
+    }
+  ]
+}
+ 
+
+--------------------------------------
+
+step 5
+if msg.tool_calls:
+    tool_call = msg.tool_calls[0]
+    arguments = json.loads(tool_call.function.arguments) # dict la convert pannum --------------   dict convert panrom arugumeny ah
+
+ ----------------------------------------------------
+
+ step 6
+
+ Model tool call mattum pannitu stop aagum.
+User ku readable answer kidaikaadhu.
+so use final 

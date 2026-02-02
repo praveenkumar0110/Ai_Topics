@@ -48,7 +48,8 @@ response = client.chat.completions.create(
     tools=tools,
 )
 
-msg = response.choices[0].message
+msg = response.choices[0].message  #llm replay enna kuduthuruku ?
+
 
 # 🔍 Check tool call
 if msg.tool_calls:
@@ -68,6 +69,7 @@ if msg.tool_calls:
         "tool_call_id": tool_call.id, 
         "content": json.dumps(result)
     })
+    #user weather kekkuraan… en kitta weather illa… aana get_weather nu oru tool irukku… adha use pannalaam"
 # final response from llm with tool result ----------------------------------3
     final = client.chat.completions.create(
         model="qwen2.5",

@@ -11,23 +11,24 @@ client = OpenAI(
 
 # 🛠️ YouTube search tool (no API, regex method)
 def youtube_search(query: str):
-    url = f"https://www.youtube.com/results?search_query={query}"
-    headers = {"User-Agent": "Mozilla/5.0"}
+    url = f"https://www.youtube.com/results?search_query={query}"  #url build pannra
+    headers = {"User-Agent": "Mozilla/5.0"} #not bot request nu sollurathu
 
-    res = requests.get(url, headers=headers).text
+    res = requests.get(url, headers=headers).text  #raw html text
 
     # Extract video IDs
-    video_ids = list(set(re.findall(r"watch\?v=(\S{11})", res)))
+    video_ids = list(set(re.findall(r"watch\?v=(\S{11})", res)))  #Regex to find video IDs 
 
     videos = []
-    for vid in video_ids[:5]:
+    for vid in video_ids[:5]: # 5 videos 
         videos.append({
             "title": f"https://www.youtube.com/watch?v={vid}",
             "url": f"https://www.youtube.com/watch?v={vid}"
         })
 
     return videos
-
+#op [{"title": "...", "url": "..."},...]
+  
 
 # 🧠 Tool schema
 tools = [
@@ -54,7 +55,7 @@ messages = [
     {"role": "user", "content": f"Search YouTube for: {query}"}
 ]
 
-# 🧠 First LLM call
+# 🧠 First LLM use(api call)
 response = client.chat.completions.create(
     model="qwen2.5",
     messages=messages,

@@ -70,7 +70,7 @@ def run_agent(user_input):
 You are a STRICT AI Email Agent.
 
 Use the company data to find boss email.
-
+ 
 Company Data:
 {policy}  
 

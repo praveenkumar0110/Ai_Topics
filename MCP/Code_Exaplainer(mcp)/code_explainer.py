@@ -40,7 +40,7 @@ async def run_client():
     )
 #pipe connection
     async with stdio_client(server_params) as (read, write):
-        #ClientSession ClientSession
+        #ClientSession 
         async with ClientSession(read, write) as session:
               #Session initialize ---Tools use panna ready.
             await session.initialize()

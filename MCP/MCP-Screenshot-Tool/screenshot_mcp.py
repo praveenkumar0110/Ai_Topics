@@ -50,6 +50,7 @@ async def run_client():
 
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
+             #Session initialize ---Tools use panna ready.
             await session.initialize()
 #User multiple URLs kuduka mudiyum.
             while True:

@@ -1,156 +1,48 @@
-🟢 Step 1 — User input
-You: Send anniversary wishes to my boss
+🥇 Step 1 — main la
+run_agent(q)
 
 
-Goes into:
-
-run_agent(user_input)
-
--------------------------------------------------
-
-🟢 Step 2 — RAG happens here (FIRST)
+User input → run_agent ku pogudhu.
+-------------------------------------------------------------------------------
+🥈 Step 2 — read_policy() run aagudhu
 policy = read_policy()
 
 
-This reads:
-
-Boss Name: Praveen Kumar
-Boss Email: ipraveen.e@gmail.com
-
-
-👉 LLM ku theriyatha private data eduthom
-👉 This is RAG step
---------------------------------------------
+Privacy policy file read pannitu text vangura.
+--------------------------------------------------------------------------
+🥉 Step 3 — Prompt build pannura
+prompt = f""" ... {policy} ... {user_input} ... """
 
 
+Policy add pannura
 
-Step 3 — Prompt build (Context Injection)
-prompt = f"""
-Company Data:
-{policy}
+User request add pannura
 
-User Request:
-{user_input}
-"""
-
-
-Now actual prompt becomes:
-
-Company Data:
-Boss Name: Praveen Kumar
-Boss Email: ipraveen.e@gmail.com
-
-User Request:
-Send anniversary wishes to my boss
-
-
-👉 RAG data prompt kulla inject aagudhu
-
-
-
----------------------------------------
-
-
-
-🟢 Step 4 — Model first run (Reasoning start)
+JSON format la reply kudu nu strict ah sollura
+-----------------------------------------------------------------------------------
+🟡 Step 4 — ask_ollama(prompt)
 output = ask_ollama(prompt)
 
 
-Ollama ku indha full text pogudhu.
+Ithu LLM API call.
 
-LLM inside yosikkum:
-User wants wishes mail
-Boss email policy la irukku
-I must send_email
-JSON format kudu
-
-
-LLM output:
-
-{
- "action": "send_email",
- "to": "ipraveen.e@gmail.com",
- "subject": "...",
- "body": "..."
-}
+LLM JSON maari reply kudukkum (sometimes extra text um irukkum).
+---------------------------------------------------------------------------------------
+🟠 Step 5 — extract_json(output)
+clean = extract_json(output)
 
 
-👉 This is Reasoning Agent
-
----------------------------------------------------
-extract_json() = LLM output la irundhu tool call data clean-a edukkura filter
-
-🟢 Step 5 — JSON extract
-data = json.loads(extract_json(output))
+LLM output la irundhu { ... } part mattum cut pannura.
+---------------------------------------------------------------------------------------
+🔵 Step 6 — json.loads()
+data = json.loads(clean)
 
 
-LLM output la irundhu JSON edukkrom.
-
-----------------------------------------------
-
-
-🟢 Step 6 — Condition check (Orchestrator logic)
+JSON string → Python dict.
+-------------------------------------------------------------------------------------
+🔥 Step 7 — Tool execution
 if data["action"] == "send_email":
+    send_email(...)
 
 
-Here decision:
-
-Tool call pannalama?
-
-YES.
-
-----------------------------------------------
-
-🟢 Step 7 — Tool Calling happens here
-send_email(data["to"], data["subject"], data["body"])
-
-
-👉 Real world action.
-
-----------------------------------------------------------
-
-
-🟢 Step 8 — Gmail SMTP
-
-Mail poidum.
-
-
----------------
-
-
-
-
-
-
-undertanding
-
-Step 1️⃣ Agent receives goal
-
-“Send Diwali wishes to my boss”
-------------------------------------------------------------------
-Step 2️⃣ Agent reasons (internally)
-
-AI think pannudhu 👇
-
-I need to send an email ✔
-Who is boss? → check policy ✔
-Is it allowed? → yes ✔
-When? → tomorrow morning ✔
-Action now or schedule? → schedule ✔
-Which tool? → email tool ✔
-
-
-🔥 Multiple real-time decisions
-------------------------------------------------------------------- 
-
-
-Step 3️⃣ Agent chooses action
-{
- "action": "schedule_email",
- "to": "boss@company.com",
- "time": "2026-01-31 09:00",
- "subject": "Diwali Wishes",
- "body": "Wishing you a joyful Diwali..."
-}
-
----------------------------------------------------------------------
+LLM sonnadha base panni real email anuppura.
