@@ -7,3 +7,18 @@ LLM decide pannum → “get_weather call pannanum”
 Python code la irukura real function run aagum
 
 Result LLM ku thirumba pogum
+
+
+
+
+User input
+   ↓
+LLM (decide tool venuma?)
+   ↓
+Tool call JSON
+   ↓
+Python function execute
+   ↓
+Result back to LLM
+   ↓
+LLM final response

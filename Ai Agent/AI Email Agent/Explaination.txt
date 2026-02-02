@@ -1,0 +1,156 @@
+🟢 Step 1 — User input
+You: Send anniversary wishes to my boss
+
+
+Goes into:
+
+run_agent(user_input)
+
+-------------------------------------------------
+
+🟢 Step 2 — RAG happens here (FIRST)
+policy = read_policy()
+
+
+This reads:
+
+Boss Name: Praveen Kumar
+Boss Email: ipraveen.e@gmail.com
+
+
+👉 LLM ku theriyatha private data eduthom
+👉 This is RAG step
+--------------------------------------------
+
+
+
+Step 3 — Prompt build (Context Injection)
+prompt = f"""
+Company Data:
+{policy}
+
+User Request:
+{user_input}
+"""
+
+
+Now actual prompt becomes:
+
+Company Data:
+Boss Name: Praveen Kumar
+Boss Email: ipraveen.e@gmail.com
+
+User Request:
+Send anniversary wishes to my boss
+
+
+👉 RAG data prompt kulla inject aagudhu
+
+
+
+---------------------------------------
+
+
+
+🟢 Step 4 — Model first run (Reasoning start)
+output = ask_ollama(prompt)
+
+
+Ollama ku indha full text pogudhu.
+
+LLM inside yosikkum:
+User wants wishes mail
+Boss email policy la irukku
+I must send_email
+JSON format kudu
+
+
+LLM output:
+
+{
+ "action": "send_email",
+ "to": "ipraveen.e@gmail.com",
+ "subject": "...",
+ "body": "..."
+}
+
+
+👉 This is Reasoning Agent
+
+---------------------------------------------------
+extract_json() = LLM output la irundhu tool call data clean-a edukkura filter
+
+🟢 Step 5 — JSON extract
+data = json.loads(extract_json(output))
+
+
+LLM output la irundhu JSON edukkrom.
+
+----------------------------------------------
+
+
+🟢 Step 6 — Condition check (Orchestrator logic)
+if data["action"] == "send_email":
+
+
+Here decision:
+
+Tool call pannalama?
+
+YES.
+
+----------------------------------------------
+
+🟢 Step 7 — Tool Calling happens here
+send_email(data["to"], data["subject"], data["body"])
+
+
+👉 Real world action.
+
+----------------------------------------------------------
+
+
+🟢 Step 8 — Gmail SMTP
+
+Mail poidum.
+
+
+---------------
+
+
+
+
+
+
+undertanding
+
+Step 1️⃣ Agent receives goal
+
+“Send Diwali wishes to my boss”
+------------------------------------------------------------------
+Step 2️⃣ Agent reasons (internally)
+
+AI think pannudhu 👇
+
+I need to send an email ✔
+Who is boss? → check policy ✔
+Is it allowed? → yes ✔
+When? → tomorrow morning ✔
+Action now or schedule? → schedule ✔
+Which tool? → email tool ✔
+
+
+🔥 Multiple real-time decisions
+------------------------------------------------------------------- 
+
+
+Step 3️⃣ Agent chooses action
+{
+ "action": "schedule_email",
+ "to": "boss@company.com",
+ "time": "2026-01-31 09:00",
+ "subject": "Diwali Wishes",
+ "body": "Wishing you a joyful Diwali..."
+}
+
+---------------------------------------------------------------------
