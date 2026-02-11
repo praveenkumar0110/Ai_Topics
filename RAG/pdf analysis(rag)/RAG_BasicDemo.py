@@ -6,7 +6,7 @@ from transformers import pipeline
 
 
 loader = TextLoader("data/About_Ai.txt")
-docs = loader.load()
+docs = loader.load() # docment obj list  
 
 
 splitter = RecursiveCharacterTextSplitter(
@@ -21,7 +21,7 @@ embeddings = HuggingFaceEmbeddings(
 )
 
 db = FAISS.from_documents(chunks, embeddings)
-retriever = db.as_retriever()   #search interface 
+retriever = db.as_retriever()   #search interface --- as retriever()
 
 
 pipe = pipeline(
@@ -29,18 +29,11 @@ pipe = pipeline(
     model="google/flan-t5-base",
     max_new_tokens=200
 )
-'''
 
-Question → embedding aagudhu (vector number list)
-
-FAISS la already irukura resume chunk vectors oda compare pannudhu
-
-Most similar 4–5 chunks eduthudhu
-'''
 # mainnn stepss
 def rag_chain(question):
-    docs = retriever.invoke(question)
-    context = "\n\n".join([d.page_content for d in docs])
+    docs = retriever.invoke(question) #cosine similarity search pannum qustion + chink db
+    context = "\n\n".join([d.page_content for d in docs])  #actual text chunks
 
     prompt = f"""
 Answer ONLY from the context.
