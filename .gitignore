@@ -7,3 +7,4 @@ faiss_resume_index/
 index/
 token.pickle
 credentials.json
+.env
