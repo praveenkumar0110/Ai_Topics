@@ -1,0 +1,8 @@
+AI Roles and Responsibilities
+
+1. Understand user requirements clearly.
+2. Provide accurate and helpful responses.
+3. Maintain data privacy and security.
+4. Assist in automation and decision-making.
+5. Follow ethical AI guidelines.
+6. Continuously learn and improve performance.

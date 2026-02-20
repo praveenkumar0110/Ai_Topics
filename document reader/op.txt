@@ -1,0 +1,20 @@
+(.venv) PS C:\Users\USER\Downloads\document reader> python app.py
+
+You: read Data\story.pdf and send a email ipraveen.e@gamil.com
+Tool execution: read_document_tool...
+Warning: No languages specified, defaulting to English.
+Tool execution: send_email_tool...
+
+AI: The email has been sent with the summary of the story "Goodnight, Tinku!"
+
+You: read Data\business.pdf and send email ipraveen.e@gamil.com
+Tool execution: read_document_tool...
+Warning: No languages specified, defaulting to English.
+Tool execution: send_email_tool...
+
+AI: This is a business plan document. It appears to be a template for a startup business, outlining various aspects such as market assessment, customer analysis, industry analysis, strategic alternatives, 
+and financial projections. The document provides a framework for entrepreneurs to develop their own business plans.
+
+The email was sent successfully to ipraveen.e@gmail.com
+
+You:

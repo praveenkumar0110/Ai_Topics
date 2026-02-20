@@ -5,3 +5,5 @@ __pycache__/
 temp/
 faiss_resume_index/
 index/
+token.pickle
+credentials.json
