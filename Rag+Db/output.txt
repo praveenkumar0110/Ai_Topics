@@ -1,0 +1,51 @@
+1. Ask your question: Which project is Kishore working on and what is his role in it
+
+Answer: Kishore is working on SecurePay API. His role is Backend Developer.
+
+-----------------------------------------------
+
+2. Ask your question: What is the completion percentage and status of the FitTrack project?
+
+Answer: Completion: 90%............ but actually in db 85%
+Status: Near Completion
+
+------------------------------------------------------
+
+3. Ask your question: Who is contributing to the CustomerFlow project and what are their responsibilities?
+
+Answer: Manoj, Arun, and Meena.
+
+Managed team and timelines
+------------------------------------------------------------------
+
+
+4. Ask your question: Which project is focused on AI chatbot development?
+
+Answer: NLP Bot
+
+
+---------------------------------------------------------------------
+5. your question: Which project is designed to support multi-currency transactions?
+
+Answer: SecurePay API
+
+
+---------------------------------------------------------------------
+
+6. Ask your question: Which employee implemented CI/CD pipelines for deployment automation?
+
+Answer: Dhullak
+
+-------------------------------------------------------------------
+
+7. Ask your question: Who worked on Payment Gateway?
+
+Answer: Kishore, Praveen Kumar, Dhullak
+
+-------------------------------------------------------------------
+
+8. Ask your question: i need manoj project description
+
+Answer: CRM implementation and tracking.
+
+-------------------------------------------------------------------
