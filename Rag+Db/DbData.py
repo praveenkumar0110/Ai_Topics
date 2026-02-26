@@ -1,3 +1,117 @@
+
+
+# from langchain_community.document_loaders import PyPDFLoader
+# from langchain_text_splitters import RecursiveCharacterTextSplitter
+# from langchain_community.vectorstores import FAISS
+# from langchain_huggingface import HuggingFaceEmbeddings
+# from langchain_ollama import OllamaLLM
+
+
+
+# loader = PyPDFLoader("data/PythonProgramming.pdf")
+# docs = loader.load()
+
+# splitter = RecursiveCharacterTextSplitter(
+#     #separator="praveen kumar",splite spearate word
+#     chunk_size=1000,
+#     chunk_overlap=200,
+#     add_start_index=True
+# )
+
+# chunks = splitter.split_documents(docs)
+
+# embeddings = HuggingFaceEmbeddings(
+#     model_name="sentence-transformers/all-MiniLM-L6-v2"
+# )
+
+# db = FAISS.from_documents(chunks, embeddings)
+
+# llm = OllamaLLM(model="llama3", temperature=0.0)
+
+# print(" Ready! Ask anything about the PDF")
+# print("Type 'exit' to stop\n")
+
+
+# def answer_question(question):
+
+#     q_lower = question.lower()
+
+
+#     is_summary = "summary" in q_lower or "summarize" in q_lower
+
+
+#     results = db.similarity_search_with_score(question, k=6)
+#              #db.max_marginal_relevance_search(query, k=6)
+
+#     if not results:
+#         return " Answer not found in document"
+
+#     contexts = []
+#     pages = set()
+
+#     for doc, _ in results:
+#         contexts.append(doc.page_content)
+#         if "page" in doc.metadata:
+#             pages.add(str(doc.metadata["page"] + 1))
+
+#     context_text = "\n\n".join(contexts)
+#     pages_text = ", ".join(pages)
+
+
+#     if is_summary:
+#         prompt = f"""
+# You are summarizing content from a PDF textbook.
+
+# Use ONLY the context below.
+# Provide a clear summary.
+
+# Context:
+# {context_text}
+
+# Summary:
+# """
+#     else:
+
+#         prompt = f"""
+# You are answering from a PDF textbook.
+
+# Use ONLY the context below.
+# If answer is not clearly present say EXACTLY:
+# Answer not found in the document.
+
+# Context:
+# {context_text}
+
+# Question:
+# {question}
+
+# Answer:
+# """
+
+#     response = llm.invoke(prompt)
+
+#     if "not found" in response.lower() or len(response.strip()) < 5:
+#         return " Answer not found in the document"
+
+#     return f"{response}\n\n Source Page(s): {pages_text}"
+
+
+
+# while True:
+
+#     user_input = input(" Ask: ")
+
+#     if user_input.lower() == "exit":
+#         print("👋 Stopped")
+#         break
+
+#     print(" Searching PDF...")
+#     reply = answer_question(user_input)
+#     print("\n Answer:\n", reply)
+#     print("-"*50)
+
+
+
 from pymongo import MongoClient
 import random
 
