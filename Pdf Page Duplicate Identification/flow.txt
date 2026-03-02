@@ -1,0 +1,28 @@
+
+1) Upload pdf
+
+2)pageLoad
+
+3) image convert 
+
+4)hash→layout fingerprint 
+    Similar layout page list
+
+5) clip → only sortlist page
+     Visual embedding store faisss index
+
+6)visual similar page get → faiss search 
+
+7) if text → raw text
+    If image → ocr → raw text
+8) text ai  meaning based
+
+9) Final output 
+    If page 20 and 40 similar means
+ 1)Hash similarity ≈ 0.95
+ 2)Visual Similarity ≈  0.91
+ 3) Text Similarity ≈  0.60
+
+10) Combine
+ if final_score > 0.96
+ Duplicate 

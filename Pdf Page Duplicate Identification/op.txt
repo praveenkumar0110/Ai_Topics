@@ -1,0 +1,49 @@
+ Stage 1: Extracting Hash + Image...
+
+✅ Hash Extracted Page 1
+✅ Hash Extracted Page 2
+✅ Hash Extracted Page 3
+✅ Hash Extracted Page 4
+✅ Hash Extracted Page 5
+✅ Hash Extracted Page 6
+✅ Hash Extracted Page 7
+✅ Hash Extracted Page 8
+✅ Hash Extracted Page 9
+✅ Hash Extracted Page 10
+✅ Hash Extracted Page 11
+✅ Hash Extracted Page 12
+✅ Hash Extracted Page 13
+✅ Hash Extracted Page 14
+✅ Hash Extracted Page 15
+✅ Hash Extracted Page 16
+✅ Hash Extracted Page 17
+✅ Hash Extracted Page 18
+✅ Hash Extracted Page 19
+✅ Hash Extracted Page 20
+✅ Hash Extracted Page 21
+✅ Hash Extracted Page 22
+
+🔍 Stage 2: Finding Layout Similar Pages...
+
+📌 Candidate Pairs Found: 171
+
+🧠 Stage 3: Running Image AI...
+
+✅ Image Embeddings Ready
+
+🧠 Stage 4: OCR + Text AI + Product Check...
+
+
+📢 Exact Duplicate Pages Found:
+
+Page 1 ≈ Page 16 | Score: 1.0
+Page 2 ≈ Page 19 | Score: 1.0
+Page 3 ≈ Page 12 | Score: 1.0
+Page 5 ≈ Page 11 | Score: 1.0
+Page 6 ≈ Page 8 | Score: 1.0
+Page 7 ≈ Page 17 | Score: 1.0
+Page 9 ≈ Page 15 | Score: 1.0
+Page 10 ≈ Page 21 | Score: 1.0
+Page 13 ≈ Page 22 | Score: 1.0
+Page 14 ≈ Page 18 | Score: 1.0
+(.venv) PS D:\Taks\Pdf Page Duplicate Identification>
