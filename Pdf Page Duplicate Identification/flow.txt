@@ -26,3 +26,7 @@
 10) Combine
  if final_score > 0.96
  Duplicate 
+
+
+
+i'm praveen7
